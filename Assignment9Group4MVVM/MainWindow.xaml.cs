@@ -20,9 +20,22 @@ namespace Assignment9Group4MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        FeesCalculator fc;
         public MainWindow()
         {
             InitializeComponent();
+            fc = new FeesCalculator();
+            DataContext = fc;
+            
+        }
+
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+           fc.GetTotalFees();
+            DataContext = fc;
+            TotalAmount ta = new TotalAmount(fc.TotalFees);
+           
+           ta.ShowDialog();
         }
     }
 }

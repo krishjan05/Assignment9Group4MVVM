@@ -7,6 +7,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lblTitle"
+               Content="Fees Calculator"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               FontSize="30"/>
+        <RadioButton Name="rbtnDormTypeAllen" GroupName="rbtnDormType"
+                     Grid.Column="0" Grid.Row="1"
+                     Content="Allen Hall($1500 per semester)"
+                     IsChecked="{Binding AllenPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnDormTypePike" GroupName="rbtnDormType"
+                     Grid.Column="0" Grid.Row="2"
+                     Content="Pike Hall ($1600 per semester)"
+                     IsChecked="{Binding PikePrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnDormTypeFarthing" GroupName="rbtnDormType"
+                     Grid.Column="0" Grid.Row="3"
+                     Content="Farthing Hall($1800 per semester)"
+                     IsChecked="{Binding FarthingPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnDormTypeUniversity" GroupName="rbtnDormType"
+                     Grid.Column="0" Grid.Row="4"
+                     Content="University Suites($2500 per semester)"
+                     IsChecked="{Binding UniversityPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnMealType7Week" GroupName="rbtnMealType"
+                     Grid.Column="1" Grid.Row="1"
+                     Content="7 per week($600 per semester)"
+                     IsChecked="{Binding SevenMealPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnMealType14Week" GroupName="rbtnMealType"
+                     Grid.Column="1" Grid.Row="2"
+                     Content="14 per week($1200 per semester)"
+                     IsChecked="{Binding ForteenMealPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="rbtnMealTypeUnlimited" GroupName="rbtnMealType"
+                     Grid.Column="1" Grid.Row="3"
+                     Content="Unlimited($1700 per semester)"
+                     IsChecked="{Binding UnlimitedMealPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Name="btnCalculate"
+                Content="Calculate" 
+                Grid.Column="1" Grid.Row="4"
+                Margin="10" Click="btnCalculate_Click"/>
+
+
     </Grid>
 </Window>
